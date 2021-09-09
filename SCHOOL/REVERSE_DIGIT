@@ -1,0 +1,30 @@
+
+Given N,  reverse the digits of N.
+ Expected Time Complexity: O(Log(N))
+Expected Space Complexity: O(1)
+ 
+
+Constraints:
+1 <= N <= 1015
+
+SOLUTION:
+
+class Solution
+{
+	public:
+		long long int reverse_digit(long long int n)
+		{
+		    // Code here
+		    long long int s=0;
+
+		    while(n)
+		    {
+		     s=(s*10)+(n%10);
+		     n=n/10;
+		    }
+		    
+		   //cout<<ans;
+		 //  cout<<s;
+		   return s;
+		}
+};
