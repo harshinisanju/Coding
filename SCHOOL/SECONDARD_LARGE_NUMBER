@@ -1,0 +1,37 @@
+1)Given an array Arr of size N, print second largest element from an array.	
+  
+ SOLUTION: 
+  
+  class Solution{
+public:	
+	// Function returns the second
+	// largest elements
+	int print2largest(int a[], int n) {
+	    // code here
+	    int max2=-1;
+	    int max=-1;
+	    
+	    /*sort(a,a+n);
+	     return a[n-2];
+	     // this will only acceptable if dupliocates are not allowed
+	     */
+	    
+	     for(int i=0;i<n;i++)
+	     {
+	         if(a[i]>max)
+	         max=a[i];
+	     }
+	     for(int  i=0;i<n;i++)
+	     {
+	         if(a[i]<max&& a[i]>max2)
+	         {
+	             max2=a[i];
+	         }
+	     }
+	    // cout<<max<<max2;
+	     return max2;
+	     
+	}
+	
+	
+};
