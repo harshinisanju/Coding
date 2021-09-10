@@ -1,0 +1,28 @@
+ Given a Binary Tree of size N , You have to count leaves in it. For example, there are two leaves in following tree
+
+        1
+     /      \
+   10      39
+  /
+5
+
+SOLUTION:
+
+ void fun(Node* node,int &c)
+ {
+   if(node!=NULL)
+   {
+       if(node->left==0 && node->right==0)
+        c++;
+        fun(node->left,c);
+        fun(node->right,c);
+   }
+ }
+int countLeaves(Node* node)
+{
+  // Your code here
+  int c=0;
+ fun(node,c);
+ //cout<<c;
+ return c;
+}
