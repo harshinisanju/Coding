@@ -1,0 +1,18 @@
+Given a linked list. Print all the elements of the linked list.
+
+SOLUTIION:
+
+class Solution
+{
+    public:
+    void display(Node *head)
+    {
+      Node * temp=head;
+      while(temp)
+      {
+          cout<<temp->data<<" ";
+          temp=temp->next;
+      }
+      
+    }
+};
