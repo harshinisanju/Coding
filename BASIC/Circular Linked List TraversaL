@@ -1,0 +1,18 @@
+Circular Linked List Traversal
+
+SOLUTION:
+void printList(struct Node *head)
+{
+  // code here
+  if(head!=NULL)
+ {
+  struct Node* temp=head;
+  cout<<temp->data<<" ";
+  temp=temp->next;
+  while(temp!=head)
+  {
+      cout<<temp->data<<" ";
+      temp=temp->next;
+  }
+ }
+}
