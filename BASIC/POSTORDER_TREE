@@ -1,0 +1,36 @@
+Given a binary tree, find the Postorder Traversal of it.
+For Example, the postorder traversal of the following tree is:
+5 10 39 1
+
+        1
+     /     \
+   10     39
+  /
+5
+
+
+SOLUTION:
+
+void fun(Node * root,vector<int>&c)
+{
+if(root!=0)
+{
+   
+   fun(root->left,c);
+   fun(root->right,c);
+   c.push_back(root->data);
+   
+}
+    
+}
+
+
+vector <int> postOrder(Node* root)
+{
+ 
+ vector<int> v;
+ fun(root,v);
+ return v;
+ 
+ // Your code here
+}
