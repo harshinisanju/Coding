@@ -1,0 +1,21 @@
+void inorder(Node *node,int &c)
+{
+  
+  if(node!=NULL)
+  {
+      inorder(node->left,c);
+      c++;
+  inorder(node->right,c);
+  }
+  
+}
+
+int getSize(Node* node)
+{
+   // Your code here
+   
+   int c=0;
+   inorder(node,c);
+   return c;
+   
+}
