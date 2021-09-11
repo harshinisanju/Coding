@@ -1,0 +1,21 @@
+Find the element that appears once in sorted array
+
+SOLUTION:
+//https://practice.geeksforgeeks.org/problems/find-the-element-that-appears-once-in-sorted-array0624/1#
+
+ public:
+    int findOnce(int arr[], int n)
+    {
+        //code here.
+        map<int,int>m;
+        for(int i=0;i<n;i++)
+        {
+            m[arr[i]]++;
+        }
+        for(auto it=m.begin();it!=m.end();it++)
+        {
+            if(it->second==1)
+            return it->first;
+        }
+    }
+};
