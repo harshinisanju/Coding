@@ -2,7 +2,7 @@ Given an array, rotate the array by one position in clock-wise direction.
 
 
 SOLUTION:
-
+//https://practice.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1#
 void rotate(int arr[], int n)
 {
     int k=1;
