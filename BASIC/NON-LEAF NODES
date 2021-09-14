@@ -1,0 +1,27 @@
+Count Non-Leaf Nodes in Tree
+
+
+
+SOLUTION:
+//https://practice.geeksforgeeks.org/problems/count-non-leaf-nodes-in-tree/1#
+class Solution {
+  public:
+ void fun(Node* root,int &c)
+  {
+      if(root==NULL|| root->left==NULL && root->right==NULL)
+      return;
+      else
+      if(root)
+      {
+          fun(root->left,c);
+          c++;
+          fun(root->right,c);
+      }
+  }
+    int countNonLeafNodes(Node* root) {
+        // Code here
+        int c=0;
+        fun(root,c);
+        return c;
+    }
+};
