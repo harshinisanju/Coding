@@ -1,0 +1,43 @@
+	
+  
+   Convert array into Zig-Zag fashion 
+  
+  Input:
+N = 7
+Arr[] = {4, 3, 7, 8, 6, 2, 1}
+Output: 3 7 4 8 2 6 1
+Explanation: 3 < 7 > 4 < 8 > 2 < 6 > 1
+
+
+  
+  void zigZag(int a[], int n) {
+	    
+	   
+	 
+	 char flag='s';
+	 for(int i=0;i<n-1;i++)   
+	 {
+	     if(flag=='s')
+	     {
+	         if(a[i]>a[i+1])
+	         {
+	             int temp=a[i];
+	             a[i]=a[i+1];
+	             a[i+1]=temp;
+	         }
+	         flag='f';
+	     }
+	     else if(flag=='f')
+	     {
+	         if(a[i]<a[i+1])
+	        {
+	            int temp=a[i];
+	             a[i]=a[i+1];
+	             a[i+1]=temp;
+	        }
+	         flag='s';
+	     }
+	 }
+	    
+	
+}
