@@ -1,0 +1,29 @@
+  Find the smallest and second smallest element in an array
+  
+  
+  //https://practice.geeksforgeeks.org/problems/remove-character3815/1#
+  
+  
+  
+  public:
+    string removeChars(string s1, string s2) {
+        // code here
+    
+        
+        for(int i=0;i<s2.size();i++)
+        {
+          for(int j=0;j<s1.size();j++)
+          {
+              if(s1[j]==s2[i])
+              s1[j]='0';
+          }
+        }
+        string ss="";
+        for(int i=0;i<s1.size();i++)
+        {
+            if(s1[i]!='0')
+            ss+=s1[i];
+        }
+        return ss;
+    }
+};
