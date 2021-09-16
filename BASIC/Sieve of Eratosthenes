@@ -1,0 +1,44 @@
+Sieve of Eratosthenes:
+
+Given a number N, calculate the prime numbers up to N using Sieve of Eratosthenes.  
+
+Example 1:
+
+Input:
+N = 10
+
+Output:
+2 3 5 7
+
+Explanation:
+Prime numbers less than equal to N 
+are 2 3 5 and 7.
+
+//https://practice.geeksforgeeks.org/problems/sieve-of-eratosthenes5242/1#
+class Solution
+{
+public:
+    vector<int> sieveOfEratosthenes(int N)
+    {
+        // Write Your Code here
+        bool a[N+1];
+        
+        memset(a,true,sizeof(a));
+        for(int i=2;i*i<=N;i++)
+        {
+            if(a[i]==true)
+            {
+                for(int j=i+i;j<=N;j=j+i)
+                a[j]=false;
+            }
+            
+        }
+        vector<int>v;
+        for(int i=2;i<=N;i++)
+        {
+            if(a[i]==true)
+            v.push_back(i);
+        }
+        return v;
+    }
+};
