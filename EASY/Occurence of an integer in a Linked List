@@ -1,0 +1,20 @@
+
+//https://practice.geeksforgeeks.org/problems/occurence-of-an-integer-in-a-linked-list/1#
+
+class Solution
+{
+    public:
+    int count(struct node* head, int search_for)
+    {
+    //add your code here
+    struct node*temp=head;
+   int c=0;
+    while(temp)
+    {
+    if(temp->data==search_for)
+    c++;
+        temp=temp->next;
+    }
+   return c;
+    }
+};
