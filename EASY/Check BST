@@ -1,0 +1,31 @@
+https://practice.geeksforgeeks.org/problems/check-for-bst/1#
+
+
+
+class Solution
+{
+    public:
+    //Function to check whether a Binary Tree is BST or not.
+    bool fun(Node * root, int left_min,int right_max)
+    {
+        if(root)
+        {
+        if(!(root->data>left_min && root->data<right_max))
+        return false;
+        
+            return(fun(root->left,left_min,root->data)&&
+            fun(root->right,root->data,right_max));
+        
+        }else
+        {return true;}
+        
+    }
+    
+    
+    bool isBST(Node* root) 
+    {
+        // Your code here
+        
+    return (fun(root,0,INT_MAX));
+        
+    }
