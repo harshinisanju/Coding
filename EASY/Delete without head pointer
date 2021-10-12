@@ -1,0 +1,24 @@
+//https://practice.geeksforgeeks.org/problems/delete-without-head-pointer/1#
+
+class Solution
+{
+    public:
+    //Function to delete a node without any reference to head pointer.
+    void deleteNode(Node *del)
+    {
+       // Your code here
+       Node*prev;
+       while(del->next)
+       {
+           prev=del;
+           del->data=del->next->data;
+           del=del->next;
+       }
+      free(del);
+        prev->next=NULL;
+       
+       
+       
+    }
+
+};
