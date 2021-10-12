@@ -1,0 +1,41 @@
+
+//https://practice.geeksforgeeks.org/problems/k-distance-from-root/1#
+
+vector<int> Kdistance(struct Node *root, int k)
+{
+  // Your code here
+ if(root)
+ {
+     
+  vector<vector<int>>v;
+  vector<int>a;
+  queue<struct Node*>q;
+  q.push(root);
+  int K=-1;
+  while(q.size()!=0)
+  {
+      int n=q.size();
+      //vector<int>vv;
+     K++;
+      while(n--)
+      {
+          struct Node*temp=q.front();
+          q.pop();
+          if(temp->left)
+          q.push(temp->left);
+          if(temp->right)
+          q.push(temp->right);
+          if(k==K)
+         a.push_back(temp->data);
+         // cout<<temp->data;
+      }
+    //  cout<<"\n";
+      //v.push_back(vv);
+  }
+  return a;
+ }
+ else
+ {
+     return {};
+ }
+}
