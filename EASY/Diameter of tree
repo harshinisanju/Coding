@@ -1,0 +1,29 @@
+  //https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1#
+  
+  
+  int height(Node *root)
+  {
+      if(root)
+      {return (1+max(height(root->left),height(root->right)));}
+      else
+      {
+          return 0;
+      }
+  }
+  void fun(Node* root,int &maxi)
+  {
+    if(root)
+    {
+        fun(root->left,maxi);
+        fun(root->right,maxi);
+     maxi=max(maxi,1+(height(root->left)+height(root->right)));
+    }
+  }
+    // Function to return the diameter of a Binary Tree.
+    int diameter(Node* root) {
+        
+    int maxi=0;
+    fun(root,maxi);
+    return maxi;
+    }
+};
