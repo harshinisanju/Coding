@@ -1,0 +1,17 @@
+
+
+//https://practice.geeksforgeeks.org/problems/transform-to-sum-tree/1#
+
+int fun(Node* root)
+    {
+        if(root)
+        {
+         int old=root->data;
+         root->data= fun(root->left)+fun(root->right);
+         
+         return root->data+old;
+        }else
+    {
+        return 0;
+    }
+    }
