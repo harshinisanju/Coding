@@ -1,0 +1,39 @@
+
+
+//https://practice.geeksforgeeks.org/problems/match-specific-pattern/1#
+string fn(string s)
+{
+    map<char,int>m;
+    string ans;
+    int ii=0;
+    for(int i=0;i<s.size();i++)
+    {
+        if(m.find(s[i])==m.end())
+        {
+            m[s[i]]=ii++;
+        }
+        ans+=to_string(m[s[i]]);
+    }
+   // cout<<ans;
+    return ans;
+}
+vector<string> findMatchedWords(vector<string> dic,string pattern)
+{
+       
+       vector<string>v;
+       string hash=fn(pattern);
+       for(int i=0;i<dic.size();i++)
+       {
+           if(dic[i].size()==pattern.size())
+           {
+            
+           string res=fn(dic[i]);
+          // cout<<res<<hash<<" ";
+           if(res==hash)
+           v.push_back(dic[i]);
+           
+           }
+       }
+       return v;
+       
+       
