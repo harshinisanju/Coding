@@ -1,0 +1,16 @@
+
+//https://practice.geeksforgeeks.org/problems/max-distance-between-same-elements/1#
+int maxDistance(int a[], int n)
+    {
+    map<int,int>mp;
+    for(int i=0;i<n;i++)
+    {
+        mp[a[i]]=i;
+    }int count=0;
+    
+    for(int i=0;i<n;i++)
+    {
+        count=max(count,mp[a[i]]-i);
+    }
+    return count;
+    }
