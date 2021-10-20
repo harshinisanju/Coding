@@ -1,0 +1,37 @@
+//https://practice.geeksforgeeks.org/problems/count-distinct-elements-in-every-window/1# 
+ vector <int> countDistinct (int a[], int n, int k)
+    {
+        int count=0;
+        vector<int>v;
+        
+        map<int,int>mp;
+        for(int i=0;i<n;i++)
+        mp[a[i]]=0;
+
+        for(int i=0;i<k;i++)
+        {
+        if(mp[a[i]]==0)
+        {
+          
+            count++;
+        }  mp[a[i]]++;
+    }
+        
+        v.push_back(count);
+
+        for(int i=k;i<n;i++)
+        {
+            mp[a[i-k]]--;
+            
+      //      cout<<"hai"<<mp[a[i-k]]<<" "<<i-k<<"\n";
+            
+            if(mp[a[i-k]]==0)
+            count--;
+            if(mp[a[i]]==0)
+            count++;
+            mp[a[i]]++;
+               v.push_back(count);
+            }
+        return v;
+    }
+};
