@@ -1,0 +1,25 @@
+ Find triplets with zero sum 
+ https://practice.geeksforgeeks.org/problems/find-triplets-with-zero-sum/1/?category[]=Arrays&category[]=Arrays&page=1&sortBy=submissions&query=category[]Arrayspage1sortBysubmissionscategory[]Arrays
+ bool findTriplets(int a[], int n)
+    { 
+        //Your code here
+        map<int,int>mp;
+        for(int i=0;i<n;i++)
+        mp[a[i]];
+        
+        
+    cout<<mp.count(61);
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {int val=a[i]+a[j];
+            val=-val;
+            //cout<<val<<" ";
+                auto ii=mp.find(val);
+                if(ii!=mp.end()&& (ii->first)!=a[i] && (ii->first)!=a[j])
+               { return 1;}
+            }
+        }
+        return 0;
+    }
+};
