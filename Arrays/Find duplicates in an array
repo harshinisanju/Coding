@@ -1,0 +1,30 @@
+
+https://practice.geeksforgeeks.org/problems/find-duplicates-in-an-array/1#
+Find duplicates in an array
+
+
+vector<int> duplicates(int a[], int n) {
+        // code here
+        vector<int>v;
+      for(int i=0;i<n;i++)
+      {
+          a[(a[i])%n]+=n;
+          
+         // cout<<a[a[i]]<<" "<<i<<" "<<a[i]<<" ";
+      }
+      
+      for(int i=0;i<n;i++)
+{
+   // cout<<a[i]<<" ";
+}      
+      for(int i=0;i<n;i++)
+      {
+          if((a[i]/n)>=2)
+         { v.push_back(i);}
+          
+      }
+      if(v.size()==0)
+      return {-1};
+      else
+      return v;
+    }
