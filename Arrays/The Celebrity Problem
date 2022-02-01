@@ -1,0 +1,38 @@
+//https://practice.geeksforgeeks.org/problems/the-celebrity-problem/1/?company[]=United%20Health%20Group&company[]=United%20Health%20Group&page=1&query=company[]United%20Health%20Grouppage1company[]United%20Health%20Group#
+//Function to find if there is a celebrity in the party or not.
+    int celebrity(vector<vector<int> >& a, int n) 
+    {
+        // code here 
+      int val=-1;
+        for(int i=0;i<n;i++)
+        {int j;
+        int flag;
+            for(j=0;j<n;j++)
+            {
+                if(a[i][j]==0)
+                continue;
+                else
+                   break;
+            }
+            if(j==n)
+            {
+               val=i; 
+              // cout<<"hai"<< i <<" ";
+            }
+        }
+        
+        
+        for(int i=0;i<n;i++)
+        {
+                if(i!=val)
+                {
+                    
+                    if(a[i][val]!=1)
+                    return -1;
+                    
+                }else
+                continue;
+            
+        }
+     //   cout<<val;
+        return val;
