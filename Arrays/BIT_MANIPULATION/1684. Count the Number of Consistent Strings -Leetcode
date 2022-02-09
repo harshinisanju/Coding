@@ -1,0 +1,49 @@
+//https://leetcode.com/problems/count-the-number-of-consistent-strings/submissions/
+You are given a string allowed consisting of distinct characters and an array of strings words. A string is consistent if all characters in the string appear in the string allowed.
+
+Return the number of consistent strings in the array words.
+
+ 
+
+Example 1:
+
+Input: allowed = "ab", words = ["ad","bd","aaab","baa","badab"]
+Output: 2
+Explanation: Strings "aaab" and "baa" are consistent since they only contain characters 'a' and 'b'.
+
+======================
+
+int countConsistentStrings(string allowed, vector<string>& words) {
+        
+        
+        set<char>s;
+        int c=0;
+        for(int i=0;i<allowed.size();i++)
+        {
+            s.insert(allowed[i]);
+        }
+        for(int i=0;i<words.size();i++)
+        {
+            string s1=words[i]; int flag=1;
+            for(int ii=0;ii<s1.size();ii++)
+            {
+               
+                if(s.find(s1[ii])!=s.end())
+                    continue;
+                else
+                {
+                    flag=0;
+                    break;
+                }
+            }
+            if(flag!=0)
+            {
+                c++;
+              //  cout<<s1<<" ";
+            }
+            
+        }
+        return c;
+        
+    }
+};
