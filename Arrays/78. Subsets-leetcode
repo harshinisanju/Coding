@@ -1,0 +1,56 @@
+//https://leetcode.com/problems/subsets/submissions/
+
+78. Subsets :-----------------------
+
+class Solution {
+public:
+    void fn(vector<int>s,vector<vector<int>>&v,vector<int>nums,int index)    
+    {
+        
+        if(index==nums.size())
+        {
+            v.push_back(s);
+            return ;
+        }
+         
+        fn(s,v,nums,index+1);
+        s.push_back(nums[index]);
+        fn(s,v,nums,index+1);
+           
+    }
+    
+    
+
+    vector<vector<int>> subsets(vector<int>& nums) {   
+     vector<vector<int>>v;
+        vector<int>s;
+        fn(s,v,nums,0);
+        return v;
+    }
+};
+=================================
+
+void fn(vector<int>s,vector<vector<int>>&v,vector<int>nums,int index)    
+    {
+        
+        if(index==nums.size())
+        {
+            v.push_back(s);
+            return ;
+        }
+         
+        fn(s,v,nums,index+1);
+        s.push_back(nums[index]);
+        fn(s,v,nums,index+1);
+           
+    }
+    
+    
+
+    vector<vector<int>> subsets(vector<int>& nums) {   
+     vector<vector<int>>v;
+        vector<int>s;
+        fn(s,v,nums,0);
+        return v;
+    }
+};
