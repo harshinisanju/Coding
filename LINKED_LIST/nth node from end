@@ -1,0 +1,24 @@
+//Nth node from end of linked list
+
+
+int getNthFromLast(Node *head, int n)
+{
+    
+    Node *small= head ;
+    Node * fast=head;
+    int c=n-1;
+    while(c-- && fast)
+    {
+        fast =fast->next;
+    }if(fast==NULL)
+    return -1;
+    //cout<<fast->data;
+ while(fast->next)
+ {
+     small=small->next;
+     fast=fast->next;
+ }
+ 
+    return small->data;
+    
+}
