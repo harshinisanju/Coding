@@ -1,0 +1,39 @@
+ Construct Binary Tree from Parent Array 
+///https://practice.geeksforgeeks.org/problems/construct-binary-tree-from-parent-array/1/
+
+ Node *createTree(int a[], int n)
+    {
+        // Your code here
+        map<int,Node*>m;
+        Node*head;
+        for(int i=0;i<n;i++)
+        {
+            Node * node=new Node(i);
+            m[i]=node;
+        }
+        
+        for(int i=0;i<n;i++)
+        {
+        auto it=m.find(a[i]);
+        if(it!=m.end())
+        {
+            auto ii=m.find(i);
+            Node*temp=ii->second;
+            
+           if(it->second->left==NULL)
+           {
+              it->second->left=temp;
+           }else
+           {
+             it->second->right=temp;   
+           }
+           
+        }
+        if(a[i]==-1)
+        {
+            head=m.find(i)->second;
+        }
+        }
+        return head;
+    }
+};
