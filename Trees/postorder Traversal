@@ -1,0 +1,32 @@
+
+//https://practice.geeksforgeeks.org/problems/postorder-traversal/1
+
+postorder Traversal
+vector <int> postOrder(Node* root)
+{
+ 
+ vector<int>v;
+  stack<Node*>s,out;
+  Node*temp;
+  s.push(root);
+  while(s.size()>0)
+  {
+    temp=s.top();
+    s.pop();
+    out.push(temp);
+    if(temp->left)
+    s.push(temp->left);
+    if(temp->right)
+    s.push(temp->right);
+
+  }
+  while(out.size()>0)
+  {
+      v.push_back(out.top()->data);
+      out.pop();
+  }
+  
+ return v;
+ 
+ // Your code here
+}
