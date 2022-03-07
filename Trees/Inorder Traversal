@@ -1,0 +1,22 @@
+//https://practice.geeksforgeeks.org/problems/inorder-traversal/1
+vector<int> inOrder(Node* root) {
+        // Your code here
+   stack<Node*>s;
+   
+   vector<int>v;
+   while(s.size()>0 || root!=NULL)
+   {
+       if(root!=NULL)
+       {
+           s.push(root);
+           root=root->left;
+       }else
+       {
+           root=s.top();
+           s.pop();
+           v.push_back(root->data);
+           root=root->right;
+       }
+   }
+   return v;
+   }}
