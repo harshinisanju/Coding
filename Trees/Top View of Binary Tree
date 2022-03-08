@@ -1,0 +1,40 @@
+//https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1#
+
+   public:
+    map<int,int>m;
+    
+    //Function to return a list of nodes visible from the top view 
+    //from left to right in Binary Tree.
+  
+    vector<int> topView(Node *root)
+    {
+        vector<int>v;
+        
+      queue<pair<Node*,int>>q;
+      
+      q.push(make_pair(root,0));
+      
+      while(q.size()>0)
+      {
+          pair<Node*,int>temp;
+          temp=  q.front();
+          int hd=temp.second;
+          Node* t=temp.first;
+          q.pop();
+          if(m.find(hd)==m.end())
+          {
+              m[hd]=t->data;
+          }
+          if(t->left)
+          q.push(make_pair(t->left,hd-1));
+          if(t->right)
+          q.push(make_pair(t->right,hd+1));
+      }
+        for(auto it=m.begin();it!=m.end();it++)
+        {
+          v.push_back(it->second);  
+        }
+return v;
+    }
+
+};
