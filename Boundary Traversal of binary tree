@@ -1,0 +1,76 @@
+//https://practice.geeksforgeeks.org/problems/boundary-traversal-of-binary-tree/1#
+
+
+class Solution {
+public:
+
+int i=0;
+
+void pre(Node*root,vector<int>&v)
+{
+    if(!root)
+    return ;
+    if(root->left)
+    {v.push_back(root->data);
+     
+    pre(root->left,v);}
+    else if(root->right)
+    {
+       v.push_back(root->data);
+     
+    pre(root->right,v); 
+    }
+     return;
+   // pre(root->right);
+}
+
+
+void post(Node*root,vector<int>&v)
+{
+     if(!root)
+    return ;
+    if(root->right)
+    {
+         post(root->right,v);  
+    v.push_back(root->data); 
+    }else if(root->left)
+    {
+         post(root->left,v);  
+    v.push_back(root->data); 
+        
+    }
+  
+  
+    return;
+}
+
+void leaves(Node*root,vector<int>&v)
+{
+    if(!root)
+    return ;
+  
+    if(root->left==NULL && root->right==NULL)
+    //if(m.find(root->data)==m.end())
+    v.push_back(root->data);
+    
+      leaves(root->left,v);
+    leaves(root->right,v);
+    return;
+    
+}
+
+    vector <int> boundary(Node *root)
+    {
+        //Your code here
+        if(!root)
+        return {};
+        vector<int>v;
+        v.push_back(root->data);
+      pre(root->left,v);
+    
+       leaves(root->left,v);
+        leaves(root->right,v);
+          post(root->right,v);
+        return v;
+    }
+};
