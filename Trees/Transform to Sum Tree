@@ -1,0 +1,21 @@
+///Transform to Sum Tree
+//https://practice.geeksforgeeks.org/problems/transform-to-sum-tree/1
+
+    
+    
+    int fn(Node* root)
+    {
+        if(root==NULL)
+        return 0;
+        
+        int old=root->data;
+        root->data=fn(root->left)+fn(root->right);
+        return root->data+old;
+    }
+   
+    void toSumTree(Node *node)
+    {
+        // Your code here
+      int a=fn(node);
+    }
+};
